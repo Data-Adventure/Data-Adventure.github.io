@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Data-Adventurer&#39;s Shell</title>
-    <link>https://Data-Adventure.github.io/series/</link>
+    <link>https://data-adventure.github.io/series/</link>
     <description>Recent content in Series on Data-Adventurer&#39;s Shell</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://Data-Adventure.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language><atom:link href="https://data-adventure.github.io/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
