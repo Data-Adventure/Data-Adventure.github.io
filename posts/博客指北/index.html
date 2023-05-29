@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The process of establishing a website on github.io // Data-Adventurer&#39;s Shell</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="The process of establishing a website on github.io" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://data-adventure.github.io/posts/%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8C%97/" />
+    
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://data-adventure.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://data-adventure.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://data-adventure.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.112.4">
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://data-adventure.github.io/">Data-Adventurer&#39;s Shell</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">about</a>
+                
+                <a class="main-nav-link" href="/posts/">posts</a>
+                
+                <a class="main-nav-link" href="/tachikomas/">tachikomas</a>
+                
+                <a class="main-nav-link" href="/categories/">categories</a>
+                
+                <a class="main-nav-link" href="/tags/">tags</a>
+                
+                <a class="main-nav-link" href="/series/">series</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">The process of establishing a website on github.io</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/posts/%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8C%97/" class="article-date">
+                <time datetime='2023-05-29T13:52:37.000&#43;08:00' itemprop="datePublished">2023-05-29</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="why-hugo">why hugo</h2>
+<ul>
+<li>fast : generate 6000 pages in 5 seconds</li>
+<li>detailed documentation</li>
+<li>rich themes</li>
+<li>simple deployment to github.io</li>
+</ul>
+<h2 id="install-hugo">install hugo</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e"># install</span>
+</span></span><span style="display:flex;"><span>brew install hugo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># check install</span>
+</span></span><span style="display:flex;"><span>hugo version
+</span></span></code></pre></div><h2 id="prepare-two-repositories-on-github">prepare two repositories on github</h2>
+<p>why do we need two repositories ?</p>
+<ol>
+<li>we don&rsquo;t need to use two git repositories to manage files</li>
+<li>once git push, Once the git push can be completed with the github action to ：
+<ol>
+<li>generate a static file</li>
+<li>Deploy and move static files to appropriate locations</li>
+</ol>
+</li>
+<li>keep your website files from disclosing personal information</li>
+</ol>
+<p><em><strong>！build two empty repositories</strong></em></p>
+<!-- raw HTML omitted -->
+<h2 id="build-website">build website</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>hugo new site path  <span style="color:#75715e"># path is the location for your website files</span>
+</span></span></code></pre></div><h2 id="chose-theme">chose theme</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>git init  <span style="color:#75715e"># ~/web root directory</span>
+</span></span><span style="display:flex;"><span>git remote add origin git@github.com:Data-Adventure/yyy.git
+</span></span><span style="display:flex;"><span>cd themes
+</span></span><span style="display:flex;"><span>git submodule add https://github.com/carsonip/hugo-theme-minos.git
+</span></span><span style="display:flex;"><span>cd ..
+</span></span><span style="display:flex;"><span>hugo new posts/xxx.md <span style="color:#75715e"># posts or post decide by your theme, make a xxx.md in your content/posts directory</span>
+</span></span><span style="display:flex;"><span>hugo seriver -DF --disableFastRender  <span style="color:#75715e"># show your website in preview</span>
+</span></span></code></pre></div><h2 id="get-token">get token</h2>
+<ol>
+<li><strong>github</strong>
+<code>Settings</code> -&gt; <code>Developer settings</code> -&gt; <code>Personal access tokens</code></li>
+<li>generate new token
+Remember that the token will not appear a second time
+<ol>
+<li>Name: PERSONAL_TOKEN</li>
+<li>Expiration: no expiration</li>
+<li>Select scopes: chose repo and workflow</li>
+<li>generate token</li>
+</ol>
+</li>
+</ol>
+<!-- raw HTML omitted -->
+<h2 id="github-action-in-your-private-repository">github action in your private repository</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>cd path  <span style="color:#75715e"># /web root directory</span>
+</span></span><span style="display:flex;"><span>mkdir -p .github/workflow <span style="color:#f92672">&amp;&amp;</span> cd .github/workflow
+</span></span><span style="display:flex;"><span>touch deploy.yaml
+</span></span></code></pre></div><p>my yaml content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Sample workflow for building and deploying a Hugo site to GitHub Pages</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy Hugo site to Pages</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Runs on pushes targeting the default branch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main</span> <span style="color:#75715e"># your git is branch&#39;s name</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Allows you to run this workflow manually from the Actions tab</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">workflow_dispatch</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">build-deploy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-22.04</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># runs-on: macos-latest # 本地编译的是macos</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Check out source</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">submodules</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup hugo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">hugo-version</span>: <span style="color:#e6db74">&#34;latest&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">extended</span>: <span style="color:#66d9ef">true</span> <span style="color:#75715e"># 设置是否需要 extended 版本</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">hugo</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-gh-pages@v3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">personal_token</span>: <span style="color:#ae81ff">${{ secrets.PERSONAL_TOKEN }}</span> <span style="color:#75715e"># 另外还支持 deploy_token 和 github_token</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">external_repository</span>: <span style="color:#ae81ff">Data-Adventure/Data-Adventure.github.io</span> <span style="color:#75715e"># 修改为你的 GitHub Pages 仓库</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./public</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e">#          keep_files: false</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_branch</span>: <span style="color:#ae81ff">main</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># 如果使用自定义域名，还需要添加下面一行配置</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># cname: www.goodfun.me</span>
+</span></span></code></pre></div><h2 id="configtoml">config.toml</h2>
+<p>hugo support .toml .yaml .json, so i use .yaml</p>
+<p>chage your file hugo.toml -&gt; config.yaml
+here is my config.yaml content:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">baseURL</span>: <span style="color:#e6db74">&#34;https://data-adventure.github.io/&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">defaultContentlanguageCode</span>: <span style="color:#e6db74">&#34;zh-CN&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">title</span>: <span style="color:#e6db74">&#34;Data-Adventurer&#39;s Shell&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">theme</span>: <span style="color:#e6db74">&#34;hugo-theme-minos&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">buildFuture</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">hasCJKLanguage</span>: <span style="color:#e6db74">&#34;true&#34;</span>  <span style="color:#75715e"># Hugo会自动提取文章的前70个字符作为摘要。</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">taxonomies</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tag</span>: <span style="color:#e6db74">&#34;tags&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">series</span>: <span style="color:#e6db74">&#34;series&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">category</span>: 
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;leetcode&#34;</span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># -------</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># theme option</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">paginate</span>: <span style="color:#ae81ff">10</span>  <span style="color:#75715e"># 页码限制</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">params</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">smartToc</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">noPostNavigation</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">katex</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">googleAnalytics</span>: <span style="color:#e6db74">&#34;UA-123-45&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 菜单配置</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">menu</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">main</span>:
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">identifier</span>: <span style="color:#e6db74">&#34;about&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;about&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/about/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">identifier</span>: <span style="color:#e6db74">&#34;posts&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;posts&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/posts/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">identifier</span>: <span style="color:#e6db74">&#34;tachikomas&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;tachikomas&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/tachikomas/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">30</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">identifier</span>: <span style="color:#e6db74">&#34;categories&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;categories&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/categories/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">40</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">identifier</span>: <span style="color:#e6db74">&#34;tags&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;tags&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/tags/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">50</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    - <span style="color:#f92672">identifier</span>: <span style="color:#e6db74">&#34;series&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;series&#34;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">url</span>: <span style="color:#ae81ff">/series/</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">weight</span>: <span style="color:#ae81ff">60</span>
+</span></span></code></pre></div><h2 id="the-last-step">the last step</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>hugo -DF  <span style="color:#75715e"># generate static files in public</span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;xxx&#34;</span>
+</span></span><span style="display:flex;"><span>git push -u -f origin main <span style="color:#75715e"># the first push to main branch some people is master. google it</span>
+</span></span></code></pre></div><h2 id="for-convenient">for convenient</h2>
+<p>here is my deploy.sh</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>RED<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\033[0;31m&#39;</span>
+</span></span><span style="display:flex;"><span>GREEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\033[0;32m&#39;</span>
+</span></span><span style="display:flex;"><span>YELLOW<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\033[0;33m&#39;</span>
+</span></span><span style="display:flex;"><span>BLUE<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\033[0;34m&#39;</span>
+</span></span><span style="display:flex;"><span>NC<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;\033[0m&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print_msg<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    COLOR<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>    MSG<span style="color:#f92672">=</span>$2
+</span></span><span style="display:flex;"><span>    echo  <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>COLOR<span style="color:#e6db74">}${</span>MSG<span style="color:#e6db74">}${</span>NC<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 读取修改内容</span>
+</span></span><span style="display:flex;"><span>print_msg <span style="color:#e6db74">&#34;</span>$GREEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;What&#39;s your update information ?:&#34;</span>
+</span></span><span style="display:flex;"><span>read -r update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print_msg <span style="color:#e6db74">&#34;</span>$GREEN<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;Have you confirmed ?:&#34;</span>
+</span></span><span style="display:flex;"><span>read -r confirmed
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span>$confirmed<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;n&#39;</span> <span style="color:#f92672">]</span>;<span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    print_msg <span style="color:#e6db74">&#34;</span>$RED<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;Submit terminate!&#34;</span>
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">else</span> 
+</span></span><span style="display:flex;"><span>    print_msg <span style="color:#e6db74">&#34;</span>$YELLOW<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;Confirmed!&#34;</span>
+</span></span><span style="display:flex;"><span>    print_msg <span style="color:#e6db74">&#34;</span>$BLUE<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;Your update is </span>$update<span style="color:#e6db74">, accepted!&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 设置提交说明，格式为 Site updated: 2006-01-02 15:04:05</span>
+</span></span><span style="display:flex;"><span>    time<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>date <span style="color:#e6db74">&#34;+%Y-%m-%d %H:%M:%S&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>    commit<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Site updated:&#34;</span>$time
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 生成</span>
+</span></span><span style="display:flex;"><span>    hugo -DF
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 输出信息</span>
+</span></span><span style="display:flex;"><span>    git add .
+</span></span><span style="display:flex;"><span>    git commit -m <span style="color:#e6db74">&#34;</span>$commit<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># 推送到source分支上</span>
+</span></span><span style="display:flex;"><span>    git push
+</span></span><span style="display:flex;"><span>    print_msg <span style="color:#e6db74">&#34;</span>$BLUE<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;All done!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>your web repository&rsquo;s action will have actions then you <code>git push</code>,
+then, your xxx.github.io also have actions</p>
+<h2 id="problem">problem</h2>
+<ul>
+<li>tags, categories pages isn&rsquo;t complete</li>
+<li>set different templates for different articles</li>
+<li>article&rsquo;s summary</li>
+<li>More articles</li>
+</ul>
+<h2 id="further">further</h2>
+<p>perfect as much as possible</p>
+<h2 id="reference">reference</h2>
+<p>a lot of help:
+<a href="https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/">https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/</a>
+<a href="https://www.yuweihung.com/">https://www.yuweihung.com/</a></p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" style="display:none;">
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-hugo">why hugo</a></li>
+    <li><a href="#install-hugo">install hugo</a></li>
+    <li><a href="#prepare-two-repositories-on-github">prepare two repositories on github</a></li>
+    <li><a href="#build-website">build website</a></li>
+    <li><a href="#chose-theme">chose theme</a></li>
+    <li><a href="#get-token">get token</a></li>
+    <li><a href="#github-action-in-your-private-repository">github action in your private repository</a></li>
+    <li><a href="#configtoml">config.toml</a></li>
+    <li><a href="#the-last-step">the last step</a></li>
+    <li><a href="#for-convenient">for convenient</a></li>
+    <li><a href="#problem">problem</a></li>
+    <li><a href="#further">further</a></li>
+    <li><a href="#reference">reference</a></li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.slim.min.js" integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc=" crossorigin="anonymous"></script>
+        <script>
+            (function() {
+                var $toc = $('#TableOfContents');
+                if ($toc.length > 0) {
+                    var $window = $(window);
+
+                    function onScroll(){
+                        var currentScroll = $window.scrollTop();
+                        var h = $('.article-entry h1, .article-entry h2, .article-entry h3, .article-entry h4, .article-entry h5, .article-entry h6');
+                        var id = "";
+                        h.each(function (i, e) {
+                            e = $(e);
+                            if (e.offset().top - 10 <= currentScroll) {
+                                id = e.attr('id');
+                            }
+                        });
+                        var active = $toc.find('a.active');
+                        if (active.length == 1 && active.eq(0).attr('href') == '#' + id) return true;
+
+                        active.each(function (i, e) {
+                            $(e).removeClass('active').siblings('ul').hide();
+                        });
+                        $toc.find('a[href="#' + id + '"]').parentsUntil('#TableOfContents').each(function (i, e) {
+                            $(e).children('a').addClass('active').siblings('ul').show();
+                        });
+                    }
+
+                    $window.on('scroll', onScroll);
+                    $(document).ready(function() {
+                        $toc.find('a').parent('li').find('ul').hide();
+                        onScroll();
+                        document.getElementsByClassName('article-toc')[0].style.display = '';
+                    });
+                }
+            })();
+        </script>
+        
+
+
+        
+    </div>
+    
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2023 Data-Adventurer&#39;s Shell
+            <br />
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
+        </div>
+    </div>
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-123-45', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.js" integrity="sha384-/y1Nn9+QQAipbNQWU65krzJralCnuOasHncUFXGkdwntGeSvQicrYkiUBwsgUqc1" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/contrib/auto-render.min.js" integrity="sha256-ExtbCSBuYA7kq1Pz362ibde9nnsHYPt6JxuxYeZbU+c=" crossorigin="anonymous"></script>
+        <script>renderMathInElement(document.body);</script>
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>
