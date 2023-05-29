@@ -101,8 +101,22 @@
 </li>
 <li>keep your website files from disclosing personal information</li>
 </ol>
-<p><em><strong>！build two empty repositories</strong></em></p>
-<!-- raw HTML omitted -->
+<p><em><strong>！build two empty repositories</strong></em>
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<ul>
+<li>repository name XXX.github.io
+<ul>
+<li>XXX is your github user name</li>
+<li><em><strong>public</strong></em></li>
+<li>store your website static files</li>
+</ul>
+</li>
+<li>repository name name is yyy, yyy is your favor name
+<ul>
+<li><em><strong>private</strong></em></li>
+</ul>
+</li>
+</ul>
 <h2 id="build-website">build website</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>hugo new site path  <span style="color:#75715e"># path is the location for your website files</span>
 </span></span></code></pre></div><h2 id="chose-theme">chose theme</h2>
@@ -123,11 +137,11 @@ Remember that the token will not appear a second time
 <li>Name: PERSONAL_TOKEN</li>
 <li>Expiration: no expiration</li>
 <li>Select scopes: chose repo and workflow</li>
-<li>generate token</li>
+<li>generate token
+<!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted --></li>
 </ol>
 </li>
 </ol>
-<!-- raw HTML omitted -->
 <h2 id="action-in-your-private-repository">action in your private repository</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>cd path  <span style="color:#75715e"># /web root directory</span>
 </span></span><span style="display:flex;"><span>mkdir -p .github/workflow <span style="color:#f92672">&amp;&amp;</span> cd .github/workflow
@@ -285,6 +299,9 @@ here is my config.yaml content:</p>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
 </span></span></code></pre></div><p>your web repository&rsquo;s action will have actions then you <code>git push</code>,
 then, your xxx.github.io also have actions</p>
+<h2 id="从远程仓库下载">从远程仓库下载</h2>
+<p>当更新电脑或者远程仓库损坏时：
+<code>git clone username.github.io --recurse-submodules</code></p>
 <h2 id="problem">problem</h2>
 <ul>
 <li>tags, categories pages isn&rsquo;t complete</li>
@@ -295,7 +312,7 @@ then, your xxx.github.io also have actions</p>
 <h2 id="further">further</h2>
 <p>perfect as much as possible</p>
 <h2 id="reference">reference</h2>
-<p>a lot of help:
+<p>a lot of help:<br>
 <a href="https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/">https://www.pseudoyu.com/zh/2022/05/29/deploy_your_blog_using_hugo_and_github_action/</a><br>
 <a href="https://www.yuweihung.com/">https://www.yuweihung.com/</a></p>
 
@@ -317,6 +334,7 @@ then, your xxx.github.io also have actions</p>
     <li><a href="#configtoml">config.toml</a></li>
     <li><a href="#the-last-step">the last step</a></li>
     <li><a href="#for-convenient">for convenient</a></li>
+    <li><a href="#从远程仓库下载">从远程仓库下载</a></li>
     <li><a href="#problem">problem</a></li>
     <li><a href="#further">further</a></li>
     <li><a href="#reference">reference</a></li>
