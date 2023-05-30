@@ -2,13 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://data-adventure.github.io/categories/</loc>
+    <lastmod>2023-05-30T15:08:00+08:00</lastmod>
+  </url><url>
     <loc>https://data-adventure.github.io/</loc>
+    <lastmod>2023-05-30T15:08:00+08:00</lastmod>
+  </url><url>
+    <loc>https://data-adventure.github.io/tags/leetcode/</loc>
+    <lastmod>2023-05-30T15:08:00+08:00</lastmod>
+  </url><url>
+    <loc>https://data-adventure.github.io/categories/leetcode/</loc>
+    <lastmod>2023-05-30T15:08:00+08:00</lastmod>
+  </url><url>
+    <loc>https://data-adventure.github.io/posts/leetcodeday50-60/</loc>
+    <lastmod>2023-05-30T15:08:00+08:00</lastmod>
+  </url><url>
+    <loc>https://data-adventure.github.io/posts/</loc>
+    <lastmod>2023-05-30T15:08:00+08:00</lastmod>
+  </url><url>
+    <loc>https://data-adventure.github.io/tags/</loc>
+    <lastmod>2023-05-30T15:08:00+08:00</lastmod>
+  </url><url>
+    <loc>https://data-adventure.github.io/tags/markdown/</loc>
+    <lastmod>2023-05-29T17:12:23+08:00</lastmod>
+  </url><url>
+    <loc>https://data-adventure.github.io/series/markdown/</loc>
     <lastmod>2023-05-29T17:12:23+08:00</lastmod>
   </url><url>
     <loc>https://data-adventure.github.io/posts/markdown%E4%BD%BF%E7%94%A8/</loc>
     <lastmod>2023-05-29T17:12:23+08:00</lastmod>
   </url><url>
-    <loc>https://data-adventure.github.io/posts/</loc>
+    <loc>https://data-adventure.github.io/series/</loc>
+    <lastmod>2023-05-29T17:12:23+08:00</lastmod>
+  </url><url>
+    <loc>https://data-adventure.github.io/categories/using-markdown/</loc>
     <lastmod>2023-05-29T17:12:23+08:00</lastmod>
   </url><url>
     <loc>https://data-adventure.github.io/posts/%E5%8D%9A%E5%AE%A2%E6%8C%87%E5%8C%97/</loc>
@@ -31,11 +58,5 @@
   </url><url>
     <loc>https://data-adventure.github.io/posts/leetcodeday1-8/</loc>
     <lastmod>2023-05-27T15:06:11+08:00</lastmod>
-  </url><url>
-    <loc>https://data-adventure.github.io/index.html</loc>
-  </url><url>
-    <loc>https://data-adventure.github.io/series/</loc>
-  </url><url>
-    <loc>https://data-adventure.github.io/tags/</loc>
   </url>
 </urlset>
