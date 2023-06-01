@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Data-Adventurer&#39;s Shell</title>
-    <link>https://data-adventure.github.io/series/</link>
+    <link>https://www.adventuresshell.com/series/</link>
     <description>Recent content in Series on Data-Adventurer&#39;s Shell</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 29 May 2023 17:12:23 +0800</lastBuildDate><atom:link href="https://data-adventure.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 29 May 2023 17:12:23 +0800</lastBuildDate><atom:link href="https://www.adventuresshell.com/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>markdown</title>
-      <link>https://data-adventure.github.io/series/markdown/</link>
+      <link>https://www.adventuresshell.com/series/markdown/</link>
       <pubDate>Mon, 29 May 2023 17:12:23 +0800</pubDate>
       
-      <guid>https://data-adventure.github.io/series/markdown/</guid>
+      <guid>https://www.adventuresshell.com/series/markdown/</guid>
       <description></description>
     </item>
     

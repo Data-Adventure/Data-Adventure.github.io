@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Data-Adventurer&#39;s Shell</title>
-    <link>https://data-adventure.github.io/categories/</link>
+    <link>https://www.adventuresshell.com/categories/</link>
     <description>Recent content in Categories on Data-Adventurer&#39;s Shell</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 30 May 2023 15:08:00 +0800</lastBuildDate><atom:link href="https://data-adventure.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 May 2023 15:08:00 +0800</lastBuildDate><atom:link href="https://www.adventuresshell.com/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>leetcode</title>
-      <link>https://data-adventure.github.io/categories/leetcode/</link>
+      <link>https://www.adventuresshell.com/categories/leetcode/</link>
       <pubDate>Tue, 30 May 2023 15:08:00 +0800</pubDate>
       
-      <guid>https://data-adventure.github.io/categories/leetcode/</guid>
+      <guid>https://www.adventuresshell.com/categories/leetcode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Using markdown</title>
-      <link>https://data-adventure.github.io/categories/using-markdown/</link>
+      <link>https://www.adventuresshell.com/categories/using-markdown/</link>
       <pubDate>Mon, 29 May 2023 17:12:23 +0800</pubDate>
       
-      <guid>https://data-adventure.github.io/categories/using-markdown/</guid>
+      <guid>https://www.adventuresshell.com/categories/using-markdown/</guid>
       <description></description>
     </item>
     
