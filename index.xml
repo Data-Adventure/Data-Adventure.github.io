@@ -6,14 +6,32 @@
     <description>Recent content on Data-Adventurer&#39;s Shell</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Jun 2023 09:09:36 +0800</lastBuildDate><atom:link href="https://www.adventurersshell.com/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Jun 2023 21:48:11 +0800</lastBuildDate><atom:link href="https://www.adventurersshell.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Summer_question</title>
+      <title>Introduction to Mahjongsoul(一)</title>
+      <link>https://www.adventurersshell.com/posts/mahjong/20230619214811/</link>
+      <pubDate>Mon, 19 Jun 2023 21:48:11 +0800</pubDate>
+      
+      <guid>https://www.adventurersshell.com/posts/mahjong/20230619214811/</guid>
+      <description>update: 星期一 19日 六月 2023 21:48:11 胡牌规则 麻将类别 筒子：也称饼子 条子：也称索子 万字 字牌：三元牌和风牌称为字牌 简单胡牌规则 4组面子，顺子为n，则刻子为4-</description>
+    </item>
+    
+    <item>
+      <title>mahjong Achievements</title>
+      <link>https://www.adventurersshell.com/posts/mahjong/20230619214639/</link>
+      <pubDate>Mon, 19 Jun 2023 21:46:39 +0800</pubDate>
+      
+      <guid>https://www.adventurersshell.com/posts/mahjong/20230619214639/</guid>
+      <description>update: 星期一 19日 六月 2023 21:46:39</description>
+    </item>
+    
+    <item>
+      <title>Summer question</title>
       <link>https://www.adventurersshell.com/posts/acwing/summer_question/</link>
       <pubDate>Mon, 19 Jun 2023 09:09:36 +0800</pubDate>
       
       <guid>https://www.adventurersshell.com/posts/acwing/summer_question/</guid>
-      <description>6.12-6.18 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 // 4908. 饥饿的牛 #include &amp;lt;iostream&amp;gt; typedef long long ll; using namespace std; int main(){ ll n, t, d, b; cin &amp;gt;&amp;gt; n &amp;gt;&amp;gt; t; ll ans{0}, tmp{0}; // tmp 暂时能吃的天数 while (n --) { cin</description>
+      <description>acwing 夏日每日一题</description>
     </item>
     
     <item>
