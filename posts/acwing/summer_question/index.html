@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://www.adventurersshell.com/css/style.css">
     
 
-    <meta name="generator" content="Hugo 0.115.3">
+    <meta name="generator" content="Hugo 0.118.2">
 </head>
 
 
@@ -440,7 +440,83 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h1 id="619-625">6.19-6.25</h1>
-<h2 id="步行者">步行者</h2>
+<h2 id="4741-魔法百合井">4741. 魔法百合井</h2>
+<p>根据最后一次投硬币的策略并全部拿完，可分为：</p>
+<ul>
+<li>投一个，<code>f[i] = f[i - 1] + 1</code>，需要保证<code>f[i - 1]</code>硬币最小</li>
+<li>投<code>4222...</code>，<code>k</code>个2，拿到<code>x</code>后面的花，<code>f[i] = f[x] + 4 + (k - 1) * 2</code>，保证<code>f[x]</code>硬币最小，则总花数<code>k * x = i</code>，<code>k = i / x</code>.</li>
+</ul>
+<p>如果每次枚举<code>i</code>的约数，复杂度为<code>根号n</code>，如果是枚举x的倍数，复杂度为：<code>ln n</code>
+`O(n / 1 + n / 2 + n / 3 + … + n / n) = O(n ∗ ∑ n / i)</p>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;iostream&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;cstring&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;algorithm&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">N</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1e5</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">T</span>, <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">f</span>[<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	<span style="color:#7f848e">// 预处理
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#e06c75">memset</span>(<span style="color:#e06c75">f</span>, <span style="color:#d19a66">0x3f</span>, <span style="color:#c678dd">sizeof</span> <span style="color:#e06c75">f</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">f</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">N</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> ){
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">f</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">f</span>[<span style="color:#e06c75">i</span>], <span style="color:#e06c75">f</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e">// 枚举j的倍数，减少复杂度
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>        <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">N</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">f</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">j</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">f</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">*</span> <span style="color:#e06c75">j</span>], <span style="color:#e06c75">f</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">+</span> <span style="color:#d19a66">4</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">2</span> <span style="color:#56b6c2">*</span> (<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">T</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#7f848e">// 打表
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">T</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">printf</span>(<span style="color:#98c379">&#34;Case #%d: %d</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">t</span>, <span style="color:#e06c75">f</span>[<span style="color:#e06c75">n</span>]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4736-步行者">4736. 步行者</h2>
 <div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 <table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
 <pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
@@ -513,6 +589,93 @@
 </span></span><span style="display:flex;"><span>        <span style="color:#e06c75">printf</span>(<span style="color:#98c379">&#34;Case #%d: %lld</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">t</span>, <span style="color:#e06c75">res</span>);
 </span></span><span style="display:flex;"><span>        <span style="color:#e06c75">memset</span>(<span style="color:#e06c75">path</span>, <span style="color:#d19a66">0</span>, <span style="color:#c678dd">sizeof</span> <span style="color:#e06c75">path</span>); <span style="color:#7f848e">// 重置数组
 </span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4738-快乐子数组">4738. 快乐子数组</h2>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">40
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;iostream&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;cstring&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;algorithm&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">N</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">4e5</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">10</span>, <span style="color:#e06c75">INF</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1e9</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">typedef</span> <span style="color:#e5c07b">long</span> <span style="color:#e5c07b">long</span> <span style="color:#e06c75">LL</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">T</span>, <span style="color:#e06c75">n</span>, <span style="color:#e06c75">x</span>, <span style="color:#e06c75">stk</span>[<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">LL</span> <span style="color:#e06c75">A</span>[<span style="color:#e06c75">N</span>], <span style="color:#e06c75">B</span>[<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">T</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">T</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">x</span>);
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">A</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">A</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">x</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">B</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">B</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">+</span> <span style="color:#e06c75">x</span> <span style="color:#56b6c2">*</span> (<span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">i</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">LL</span> <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">top</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">A</span>[<span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> <span style="color:#56b6c2">-</span><span style="color:#e06c75">INF</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">stk</span>[<span style="color:#56b6c2">++</span> <span style="color:#e06c75">top</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">--</span>){
+</span></span><span style="display:flex;"><span>            <span style="color:#7f848e">// 逆序，当栈顶元素大于等于元素时，弹出
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>            <span style="color:#c678dd">while</span>(<span style="color:#e06c75">A</span>[<span style="color:#e06c75">stk</span>[<span style="color:#e06c75">top</span>]] <span style="color:#56b6c2">&gt;=</span> <span style="color:#e06c75">A</span>[<span style="color:#e06c75">i</span>]) <span style="color:#e06c75">top</span> <span style="color:#56b6c2">--</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#7f848e">// 栈顶的下标
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>            <span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">stk</span>[<span style="color:#e06c75">top</span>];
+</span></span><span style="display:flex;"><span>            <span style="color:#7f848e">// 将元素加入栈顶
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>            <span style="color:#e06c75">stk</span>[<span style="color:#56b6c2">++</span> <span style="color:#e06c75">top</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">i</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">res</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">B</span>[<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">B</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">-</span> (<span style="color:#e06c75">A</span>[<span style="color:#e06c75">j</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">A</span>[<span style="color:#e06c75">i</span>]) <span style="color:#56b6c2">*</span> (<span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">j</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">printf</span>(<span style="color:#98c379">&#34;Case #%d: %lld</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">t</span>, <span style="color:#e06c75">res</span>);
+</span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#d19a66">0</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
@@ -1014,6 +1177,113 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="3752-更小的字符串">3752. 更小的字符串</h2>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">50
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;iostream&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;cstring&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;algorithm&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">typedef</span> <span style="color:#e5c07b">long</span> <span style="color:#e5c07b">long</span> <span style="color:#e06c75">LL</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">N</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">100010</span>, <span style="color:#e06c75">MOD</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1e9</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">7</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">n</span>, <span style="color:#e06c75">m</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">char</span> <span style="color:#e06c75">s</span>[<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">p</span>[<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e5c07b">int</span> <span style="color:#e06c75">T</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">T</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">cases</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">cases</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">T</span>; <span style="color:#e06c75">cases</span> <span style="color:#56b6c2">++</span> )
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d%d&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">n</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">m</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%s&#34;</span>, <span style="color:#e06c75">s</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">p</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> )
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">p</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">LL</span>)<span style="color:#e06c75">p</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">*</span> <span style="color:#e06c75">m</span> <span style="color:#56b6c2">%</span> <span style="color:#e06c75">MOD</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">mid</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>) <span style="color:#56b6c2">/</span> <span style="color:#d19a66">2</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">mid</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> )
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">res</span> <span style="color:#56b6c2">+=</span> (<span style="color:#e06c75">LL</span>)(<span style="color:#e06c75">s</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">-</span> <span style="color:#98c379">&#39;a&#39;</span>) <span style="color:#56b6c2">*</span> <span style="color:#e06c75">p</span>[<span style="color:#e06c75">mid</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">%</span> <span style="color:#e06c75">MOD</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">res</span> <span style="color:#56b6c2">%=</span> <span style="color:#e06c75">MOD</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">mid</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>, <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">n</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">i</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">--</span>, <span style="color:#e06c75">j</span> <span style="color:#56b6c2">++</span> )
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">s</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">!=</span> <span style="color:#e06c75">s</span>[<span style="color:#e06c75">j</span>])
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">if</span> (<span style="color:#e06c75">s</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">s</span>[<span style="color:#e06c75">j</span>]) <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>                <span style="color:#c678dd">break</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> (<span style="color:#e06c75">res</span> <span style="color:#56b6c2">+</span> <span style="color:#e06c75">t</span>) <span style="color:#56b6c2">%</span> <span style="color:#e06c75">MOD</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">printf</span>(<span style="color:#98c379">&#34;Case #%d: %d</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">cases</span>, <span style="color:#e06c75">res</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h1 id="703-709">7.03-7.09</h1>
 <h2 id="4118-狗和猫">4118. 狗和猫</h2>
 <div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -1110,6 +1380,314 @@
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></td></tr></table>
 </div>
+</div><h2 id="3748-递增子串">3748. 递增子串</h2>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">36
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;iostream&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;cstring&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;algorithm&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">N</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2e5</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">10</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">T</span>, <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">char</span> <span style="color:#e06c75">p</span>[<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">mark</span>[<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">T</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">T</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">p</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">mark</span>[<span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">2</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> ){
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">p</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">&gt;</span> <span style="color:#e06c75">p</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>]){
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">mark</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">mark</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>            } <span style="color:#c678dd">else</span> {
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">mark</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>;
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">printf</span>(<span style="color:#98c379">&#34;Case #%d: &#34;</span>, <span style="color:#e06c75">t</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> ){
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">printf</span>(<span style="color:#98c379">&#34;%d &#34;</span>, <span style="color:#e06c75">mark</span>[<span style="color:#e06c75">i</span>]);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">puts</span>(<span style="color:#98c379">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">memset</span>(<span style="color:#e06c75">mark</span>, <span style="color:#d19a66">0</span>, <span style="color:#c678dd">sizeof</span> <span style="color:#e06c75">mark</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3325-kick_start">3325. Kick_Start</h2>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;iostream&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;cstring&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;algorithm&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;string&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">T</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">string</span> <span style="color:#e06c75">s</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">T</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">T</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">++</span> ){
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">s</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">int</span> <span style="color:#e06c75">kick</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>, <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;</span> <span style="color:#e06c75">s</span>.<span style="color:#e06c75">size</span>() <span style="color:#56b6c2">-</span> <span style="color:#d19a66">4</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">if</span> (<span style="color:#e06c75">s</span>.<span style="color:#e06c75">substr</span>(<span style="color:#e06c75">i</span>, <span style="color:#d19a66">4</span>) <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#34;KICK&#34;</span>) <span style="color:#e06c75">kick</span> <span style="color:#56b6c2">++</span>, <span style="color:#e06c75">i</span> <span style="color:#56b6c2">+=</span> <span style="color:#d19a66">2</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">else</span> <span style="color:#c678dd">if</span> (<span style="color:#e06c75">s</span>.<span style="color:#e06c75">substr</span>(<span style="color:#e06c75">i</span>, <span style="color:#d19a66">5</span>) <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#34;START&#34;</span>) <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">kick</span>, <span style="color:#e06c75">i</span> <span style="color:#56b6c2">+=</span> <span style="color:#d19a66">4</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">cout</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34;Case #&#34;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#98c379">&#34;: &#34;</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">&lt;&lt;</span> <span style="color:#e06c75">endl</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="4114-垃圾桶">4114. 垃圾桶</h2>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;iostream&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;cstring&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;algorithm&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">N</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">5e5</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">T</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">char</span> <span style="color:#e06c75">s</span>[<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">l</span>[<span style="color:#e06c75">N</span>], <span style="color:#e06c75">r</span>[<span style="color:#e06c75">N</span>], <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">cin</span> <span style="color:#56b6c2">&gt;&gt;</span> <span style="color:#e06c75">T</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">T</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d%s&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">n</span>, <span style="color:#e06c75">s</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">l</span>[<span style="color:#d19a66">0</span>] <span style="color:#56b6c2">=</span> <span style="color:#56b6c2">-</span><span style="color:#d19a66">1e6</span>, <span style="color:#e06c75">r</span>[<span style="color:#e06c75">n</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>] <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1e6</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> ){
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">l</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">s</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#39;1&#39;</span><span style="color:#56b6c2">?</span> <span style="color:#e06c75">i</span>: <span style="color:#e06c75">l</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&gt;=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">--</span> ){
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">r</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">=</span> <span style="color:#e06c75">s</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">==</span> <span style="color:#98c379">&#39;1&#39;</span><span style="color:#56b6c2">?</span> <span style="color:#e06c75">i</span>: <span style="color:#e06c75">r</span>[<span style="color:#e06c75">i</span> <span style="color:#56b6c2">+</span> <span style="color:#d19a66">1</span>];
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e5c07b">long</span> <span style="color:#e5c07b">long</span> <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span>) 
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">ans</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">min</span>(<span style="color:#e06c75">i</span> <span style="color:#56b6c2">-</span> <span style="color:#e06c75">l</span>[<span style="color:#e06c75">i</span>], <span style="color:#e06c75">r</span>[<span style="color:#e06c75">i</span>] <span style="color:#56b6c2">-</span> <span style="color:#e06c75">i</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">printf</span>(<span style="color:#98c379">&#34;Case #%d: %lld</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">t</span>, <span style="color:#e06c75">ans</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="3326-最大硬币数">3326. 最大硬币数</h2>
+<div class="highlight"><div style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#55595f">47
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#abb2bf;background-color:#282c34;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;iostream&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;cstring&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e">#include</span> <span style="color:#7f848e">&lt;algorithm&gt;</span><span style="color:#7f848e">
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">using</span> <span style="color:#c678dd">namespace</span> <span style="color:#e06c75">std</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">const</span> <span style="color:#e5c07b">int</span> <span style="color:#e06c75">N</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1010</span>;
+</span></span><span style="display:flex;"><span><span style="color:#c678dd">typedef</span> <span style="color:#e5c07b">long</span> <span style="color:#e5c07b">long</span> <span style="color:#e06c75">LL</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">T</span>, <span style="color:#e06c75">n</span>;
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">total</span>[<span style="color:#e06c75">N</span> <span style="color:#56b6c2">*</span> <span style="color:#d19a66">2</span>];
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#e06c75">map</span>[<span style="color:#e06c75">N</span>][<span style="color:#e06c75">N</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e06c75">LL</span> <span style="color:#61afef;font-weight:bold">find</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">x</span>, <span style="color:#e5c07b">int</span> <span style="color:#e06c75">y</span>){
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">LL</span> <span style="color:#e06c75">temp</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">while</span>(<span style="color:#e06c75">x</span> <span style="color:#56b6c2">&lt;=</span><span style="color:#e06c75">n</span> <span style="color:#56b6c2">&amp;&amp;</span> <span style="color:#e06c75">y</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">temp</span> <span style="color:#56b6c2">+=</span> <span style="color:#e06c75">map</span>[<span style="color:#e06c75">x</span>][<span style="color:#e06c75">y</span>];
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">x</span> <span style="color:#56b6c2">++</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">y</span> <span style="color:#56b6c2">++</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#e06c75">temp</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#e5c07b">int</span> <span style="color:#61afef;font-weight:bold">main</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">T</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">t</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">T</span>; <span style="color:#e06c75">t</span> <span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">n</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e">// 读入
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> ){
+</span></span><span style="display:flex;"><span>            <span style="color:#c678dd">for</span>(<span style="color:#e5c07b">int</span> <span style="color:#e06c75">j</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">j</span> <span style="color:#56b6c2">++</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#e06c75">scanf</span>(<span style="color:#98c379">&#34;%d&#34;</span>, <span style="color:#56b6c2">&amp;</span><span style="color:#e06c75">map</span>[<span style="color:#e06c75">i</span>][<span style="color:#e06c75">j</span>]);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">LL</span> <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e">// 横向
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> ){
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">max</span>(<span style="color:#e06c75">res</span>, <span style="color:#e06c75">find</span>(<span style="color:#e06c75">i</span>, <span style="color:#d19a66">1</span>));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#7f848e">// 纵向
+</span></span></span><span style="display:flex;"><span><span style="color:#7f848e"></span>        <span style="color:#c678dd">for</span> (<span style="color:#e5c07b">int</span> <span style="color:#e06c75">i</span> <span style="color:#56b6c2">=</span> <span style="color:#d19a66">1</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">&lt;=</span> <span style="color:#e06c75">n</span>; <span style="color:#e06c75">i</span> <span style="color:#56b6c2">++</span> ){
+</span></span><span style="display:flex;"><span>            <span style="color:#e06c75">res</span> <span style="color:#56b6c2">=</span> <span style="color:#e06c75">max</span>(<span style="color:#e06c75">res</span>, <span style="color:#e06c75">find</span>(<span style="color:#d19a66">1</span>, <span style="color:#e06c75">i</span>));
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        <span style="color:#e06c75">printf</span>(<span style="color:#98c379">&#34;Case #%d: %lld</span><span style="color:#98c379">\n</span><span style="color:#98c379">&#34;</span>, <span style="color:#e06c75">t</span>, <span style="color:#e06c75">res</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#c678dd">return</span> <span style="color:#d19a66">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></td></tr></table>
+</div>
 </div>
         </div>
 
@@ -1127,7 +1705,9 @@
   </ul>
 
   <ul>
-    <li><a href="#步行者">步行者</a></li>
+    <li><a href="#4741-魔法百合井">4741. 魔法百合井</a></li>
+    <li><a href="#4736-步行者">4736. 步行者</a></li>
+    <li><a href="#4738-快乐子数组">4738. 快乐子数组</a></li>
     <li><a href="#4737-冰壶">4737. 冰壶</a></li>
     <li><a href="#4672-布料排序">4672. 布料排序</a></li>
   </ul>
@@ -1137,10 +1717,15 @@
     <li><a href="#3321-atm队列">3321. ATM队列</a></li>
     <li><a href="#4633-学生和导师">4633. 学生和导师</a></li>
     <li><a href="#4443-无限区域">4443. 无限区域</a></li>
+    <li><a href="#3752-更小的字符串">3752. 更小的字符串</a></li>
   </ul>
 
   <ul>
     <li><a href="#4118-狗和猫">4118. 狗和猫</a></li>
+    <li><a href="#3748-递增子串">3748. 递增子串</a></li>
+    <li><a href="#3325-kick_start">3325. Kick_Start</a></li>
+    <li><a href="#4114-垃圾桶">4114. 垃圾桶</a></li>
+    <li><a href="#3326-最大硬币数">3326. 最大硬币数</a></li>
   </ul>
 </nav>
         </div>
