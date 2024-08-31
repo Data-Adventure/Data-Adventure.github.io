@@ -1,0 +1,20 @@
+theme: hextra
+menu:
+ main:
+  - name: Blog
+    pageRef: /blog
+    weight: 2
+  - name: About
+    pageRef: /about
+    weight: 2
+  - name: Search
+    weight: 4
+    params:
+     type: search
+  - name: github
+    weight: 5
+    url: "https://github.com/Data-Adventure"
+    params:
+     icon: github
+
+
