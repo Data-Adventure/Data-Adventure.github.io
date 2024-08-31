@@ -1,3 +1,6 @@
+baseURL: "https://www.adventurersshell.com/"
+title: test
+
 theme: hextra
 menu:
  main:
