@@ -1,5 +1,5 @@
-baseURL: "https://www.adventurersshell.com/"
-title: test
+baseURL: "www.adventurersshell.com"
+title: Data-Adventurer's shell
 
 theme: hextra
 menu:

@@ -1,12 +1,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title> – Categories</title>
-    <link>//localhost:1313/categories/</link>
-    <description>Recent content in Categories on </description>
+    <title>Data-Adventurer&#39;s shell – Categories</title>
+    <link>www.adventurersshell.com/categories/</link>
+    <description>Recent content in Categories on Data-Adventurer&#39;s shell</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	  <atom:link href="//localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
+	  <atom:link href="www.adventurersshell.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
       
